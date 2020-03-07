@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{9AA5B253-26A8-4787-9EED-B17BF1CC75B1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>org.rosenbohm.csharp</RootNamespace>
+    <AssemblyName>CADdyTools</AssemblyName>
+    <OutputPath>bin\Debug\</OutputPath>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <PlatformTarget>x86</PlatformTarget>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <DebugType>pdbonly</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <PlatformTarget>x86</PlatformTarget>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug-x64</OutputPath>
+    <PlatformTarget>x64</PlatformTarget>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release-x64</OutputPath>
+    <DebugType>pdbonly</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <PlatformTarget>x64</PlatformTarget>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <!-- Default values for debugging so it start correct version of Notepad++
+         $(ProgramW6432) and $(MSBuildProgramFiles32) points to the 64 and 32 bit "Program Files" directories -->
+    <StartAction>Program</StartAction>
+    <StartProgram Condition="'$(Platform)'=='x64'">$(ProgramW6432)\Notepad++\notepad++.exe</StartProgram>
+    <StartProgram Condition="'$(Platform)'=='x86'">$(MSBuildProgramFiles32)\Notepad++\notepad++.exe</StartProgram>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CADdy\ClassCADdyMessdaten.cs" />
+    <Compile Include="CADdy\ClassTransformation.cs" />
+    <Compile Include="CADdy\ClassTransformdisplayPoint.cs" />
+    <Compile Include="CADdy\ClassTransformPointPair.cs" />
+    <Compile Include="CADdy\ClassCADdyPointCompare.cs" />
+    <Compile Include="CADdy\ClassCADdyPunkt.cs" />
+    <Compile Include="CADdy\ClassCADdyPunkte.cs" />
+    <Compile Include="CADdy\ClassCADdyStandpunkt.cs" />
+    <Compile Include="CADdy\ClassCADdyWhatIAm.cs" />
+    <Compile Include="CADdy\ClassCADdyZielung.cs" />
+    <Compile Include="CADdy\enPointColumn.cs" />
+    <Compile Include="CADdy\enWhatIAm.cs" />
+    <Compile Include="Forms\frmAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmAbout.Designer.cs">
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmCADdyToolsSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmCADdyToolsSettings.Designer.cs">
+      <DependentUpon>frmCADdyToolsSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmTransformCoord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmTransformCoord.Designer.cs">
+      <DependentUpon>frmTransformCoord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmPolarCoord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmPolarCoord.Designer.cs">
+      <DependentUpon>frmPolarCoord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmCompareCoord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmCompareCoord.Designer.cs">
+      <DependentUpon>frmCompareCoord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmTranslateCoord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmTranslateCoord.Designer.cs">
+      <DependentUpon>frmTranslateCoord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmRotateCoord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmRotateCoord.Designer.cs">
+      <DependentUpon>frmRotateCoord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmChangeID.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmChangeID.Designer.cs">
+      <DependentUpon>frmChangeID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmChangeCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmChangeCode.Designer.cs">
+      <DependentUpon>frmChangeCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PluginInfrastructure\ClikeStringArray.cs" />
+    <Compile Include="PluginInfrastructure\DllExport\DllExportAttribute.cs" />
+    <Compile Include="PluginInfrastructure\Win32.cs" />
+    <Compile Include="Main.cs" />
+    <Compile Include="PluginInfrastructure\GatewayDomain.cs" />
+    <Compile Include="PluginInfrastructure\NotepadPPGateway.cs" />
+    <Compile Include="PluginInfrastructure\ScintillaGateway.cs" />
+    <Compile Include="PluginInfrastructure\IScintillaGateway.cs" />
+    <Compile Include="PluginInfrastructure\NppPluginNETBase.cs" />
+    <Compile Include="PluginInfrastructure\NppPluginNETHelper.cs" />
+    <Compile Include="PluginInfrastructure\Docking_h.cs" />
+    <Compile Include="PluginInfrastructure\MenuCmdID_h.cs" />
+    <Compile Include="PluginInfrastructure\Scintilla_iface.cs" />
+    <Compile Include="PluginInfrastructure\Msgs_h.cs" />
+    <Compile Include="PluginInfrastructure\Preference_h.cs" />
+    <Compile Include="PluginInfrastructure\Resource_h.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="PluginInfrastructure\UnmanagedExports.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="Settingshelper\INIGroupName.cs" />
+    <Compile Include="Settingshelper\INIIgnoreThis.cs" />
+    <Compile Include="Settingshelper\INIPropertyName.cs" />
+    <Compile Include="Settingshelper\INISettingsBase.cs" />
+    <Compile Include="Tools\ClassConverters.cs" />
+    <Compile Include="Tools\ClassFuzzyLogic.cs" />
+    <Compile Include="Tools\ClassLanguage.cs" />
+    <Compile Include="Tools\ClassMath.cs" />
+    <Compile Include="Tools\ClassNPPTools.cs" />
+    <Compile Include="Tools\ClassRegexTools.cs" />
+    <Compile Include="Tools\ClassStringTools.cs" />
+    <Compile Include="Tools\OwnClikeStringArray.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Forms\frmAbout.resx">
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmCADdyToolsSettings.resx">
+      <DependentUpon>frmCADdyToolsSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmTransformCoord.resx">
+      <DependentUpon>frmTransformCoord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmPolarCoord.resx">
+      <DependentUpon>frmPolarCoord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmCompareCoord.resx">
+      <DependentUpon>frmCompareCoord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmTranslateCoord.resx">
+      <DependentUpon>frmTranslateCoord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmRotateCoord.resx">
+      <DependentUpon>frmRotateCoord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmChangeID.resx">
+      <DependentUpon>frmChangeID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmChangeCode.resx">
+      <DependentUpon>frmChangeCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CADdyTools_Lang.ini">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\transform.bmp" />
+    <EmbeddedResource Include="Resources\settings.bmp" />
+    <EmbeddedResource Include="Resources\rotate.bmp" />
+    <EmbeddedResource Include="Resources\move.bmp" />
+    <EmbeddedResource Include="Resources\info.bmp" />
+    <EmbeddedResource Include="Resources\compare.bmp" />
+    <EmbeddedResource Include="Resources\change.bmp" />
+    <EmbeddedResource Include="Resources\calc.bmp" />
+    <EmbeddedResource Include="Resources\CADdyTools.bmp" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildProjectDirectory)\PluginInfrastructure\DllExport\NppPlugin.DllExport.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(ProjectDir)CADdyTools_Lang.ini " "C:\Program Files\Notepad++\plugins\$(ProjectName)\"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
