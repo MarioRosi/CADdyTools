@@ -1,7 +1,7 @@
 # CADdyTools
 Notepad++-Plugin for manipulate CADdy-formated  coordinate- and measure-textfiles
 
-CADdy is a CAD-Software from dead german company ‘ZIEGLER Informatics GmbH’, but today continued by company’s ‘DataSolid’, ‘IGE+XAO-Group’ and ‘Weniger Geoinformatik’. 
+CADdy is a CAD-Software from dead german company ‘ZIEGLER Informatics GmbH’, but today continued by company’s ‘DataSolid’, ‘IGE+XAO-Group’ and ‘Wenninger Geoinformatik’. 
 Se https://de.wikipedia.org/wiki/CADdy_(Software)
 
 One part of this CADdy software is an very good surveying calculation tool. And this plugin can format and edit the exchange file for coordinates and measures. Many surveying engineers are using this format to exchange her measures.

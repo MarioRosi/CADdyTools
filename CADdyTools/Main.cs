@@ -12,14 +12,28 @@ using org.rosenbohm.csharp.CADdyTools.Forms;
 
 namespace org.rosenbohm.csharp
 {
-    /* 64bit eintrag
+    /* 
+     * 64bit eintrag
      * 
        {
 			"folder-name": "CADdyTools",
 			"display-name": "CADdyTools",
 			"version": "1.0.0.2",
-			"id": "11d4a5147cc7fd146d9302934446b7fb40c3e32e779ed40b1fb8b8de2b670b19",
-			"repository": "https://github.com/dail8859/LuaScript/releases/download/v0.10.1/LuaScript_v0.10.1_x64.zip",
+			"id": "19931a218eb4a90e4c1643653262fdace1add17378d74fd0b3835e80dd00e526",
+			"repository": "https://github.com/MarioRosi/CADdyTools/blob/master/Plugin/version1002/CADdyTools_1002_x64.zip",
+			"description": "Notepad++-Plugin for manipulate CADdy-formated coordinate- and measure-textfiles",
+			"author": "Mario Rosenbohm",
+			"homepage": "https://github.com/MarioRosi/CADdyTools"
+		},
+     
+     * 32bit eintrag
+     * 
+       {
+			"folder-name": "CADdyTools",
+			"display-name": "CADdyTools",
+			"version": "1.0.0.2",
+			"id": "7d0c62cc551236b398d82c0a7a96bef468d28345b27e0a73feb75b29eab1af33",
+			"repository": "https://github.com/MarioRosi/CADdyTools/blob/master/Plugin/version1002/CADdyTools_1002_x86.zip",
 			"description": "Notepad++-Plugin for manipulate CADdy-formated coordinate- and measure-textfiles",
 			"author": "Mario Rosenbohm",
 			"homepage": "https://github.com/MarioRosi/CADdyTools"
