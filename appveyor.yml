@@ -1,0 +1,50 @@
+version: 1.0.0.2{build}
+image: Visual Studio 2017
+
+
+platform:
+    - Any CPU
+    - x86
+    - x64
+
+configuration:
+    - Release
+    - Debug
+
+install:
+    - if "%platform%"=="Any CPU" set archi=x86
+    - if "%platform%"=="Any CPU" set platform_input=Any CPU
+    - if "%platform%"=="x86" set archi=x86
+    - if "%platform%"=="x86" set platform_input=x86
+    - if "%platform%"=="x64" set archi=amd_x64
+    - if "%platform%"=="x64" set platform_input=x64
+
+build_script:
+    - cd "%APPVEYOR_BUILD_FOLDER%"
+    - msbuild CADdyTools.sln /m /p:configuration="%configuration%" /p:platform="%platform_input%" /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+
+after_build:
+    - cd "%APPVEYOR_BUILD_FOLDER%"
+    - ps: >-
+        Push-AppveyorArtifact "CADdyTools\bin\$env:CONFIGURATION\CADdyTools.dll" -FileName CADdyTools.dll
+
+        if ($($env:APPVEYOR_REPO_TAG) -eq "true" -and $env:CONFIGURATION -eq "Release") {
+            $ZipFileName = "CADdyTools_$($env:APPVEYOR_REPO_TAG_NAME)_$($env:PLATFORM_INPUT).zip"
+            7z a $ZipFileName "%APPVEYOR_BUILD_FOLDER%\CADdyTools\bin\$env:CONFIGURATION\CADdyTools.dll"
+        }
+
+artifacts:
+  - path: CADdyTools_*.zip
+    name: releases
+
+deploy:
+    provider: GitHub
+    auth_token:
+        secure: !!TODO, see https://www.appveyor.com/docs/deployment/github/#provider-settings!!
+    artifact: releases
+    draft: false
+    prerelease: false
+    force_update: true
+    on:
+        appveyor_repo_tag: true
+        configuration: Release

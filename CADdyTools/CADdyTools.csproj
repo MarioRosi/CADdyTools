@@ -238,7 +238,7 @@
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildProjectDirectory)\PluginInfrastructure\DllExport\NppPlugin.DllExport.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy "$(ProjectDir)CADdyTools_Lang.ini " "C:\Program Files\Notepad++\plugins\$(ProjectName)\"</PostBuildEvent>
+    <PostBuildEvent Condition="exists('C:\Program Files\Notepad++\plugins')">copy "$(ProjectDir)CADdyTools_Lang.ini " "C:\Program Files\Notepad++\plugins\$(ProjectName)\"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
