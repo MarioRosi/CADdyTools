@@ -156,7 +156,7 @@ namespace org.rosenbohm.csharp.CADdy
                 foreach (ClassCADdyPunkt item in Punkte)
                 {
                     String temp = item.getCADdyFormatString(settings);
-                    editor.AppendText(temp.Length + 1, temp + "\n");
+                    editor.AppendText(temp.Length + 1, temp + Environment.NewLine);
                 }
                 editor.EndUndoAction();
                 editor.SetCurrentPos(oldPos);
@@ -177,7 +177,7 @@ namespace org.rosenbohm.csharp.CADdy
                 foreach (ClassCADdyPunkt item in Punkte)
                 {
                     String temp = item.getExcelFormatString();
-                    editor.AppendText(temp.Length + 1, temp + "\n");
+                    editor.AppendText(temp.Length + 1, temp + Environment.NewLine);
                 }
                 editor.EndUndoAction();
                 editor.SetCurrentPos(oldPos);

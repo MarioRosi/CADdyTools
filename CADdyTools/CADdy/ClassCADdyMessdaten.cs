@@ -141,11 +141,11 @@ namespace org.rosenbohm.csharp.CADdy
                 foreach (ClassCADdyStandpunkt item in standpunkte)
                 {
                     String temp = item.getCADdyFormatString(settings);
-                    editor.AppendText(temp.Length + 1, temp + "\n");
+                    editor.AppendText(temp.Length + 1, temp + Environment.NewLine);
                     foreach (ClassCADdyZielung ziel in item.Zielungen)
                     {
                         temp = ziel.getCADdyFormatString(settings);
-                        editor.AppendText(temp.Length + 1, temp + "\n");
+                        editor.AppendText(temp.Length + 1, temp + Environment.NewLine);
                     }
                 }
                 editor.SetSelection(selStart.Value, selEnd.Value);
@@ -174,13 +174,13 @@ namespace org.rosenbohm.csharp.CADdy
                 foreach (KeyValuePair<String, List<Int32>> stId in stpkIndex)
                 {
                     String temp = standpunkte[stId.Value[0]].getCADdyFormatString(settings);
-                    editor.AppendText(temp.Length + 1, temp + "\n");
+                    editor.AppendText(temp.Length + 1, temp + Environment.NewLine);
                     foreach (Int32 stpkId in stId.Value)
                     {
                         foreach (ClassCADdyZielung ziel in standpunkte[stpkId].Zielungen)
                         {
                             temp = ziel.getCADdyFormatString(settings);
-                            editor.AppendText(temp.Length + 1, temp + "\n");
+                            editor.AppendText(temp.Length + 1, temp + Environment.NewLine);
                         }
                     }
                 }
@@ -201,11 +201,11 @@ namespace org.rosenbohm.csharp.CADdy
                 foreach (ClassCADdyStandpunkt item in standpunkte)
                 {
                     String temp = item.getExcelFormatString();
-                    editor.AppendText(temp.Length + 1, temp + "\n");
+                    editor.AppendText(temp.Length + 1, temp + Environment.NewLine);
                     foreach (ClassCADdyZielung ziel in item.Zielungen)
                     {
                         temp = ziel.getExcelFormatString();
-                        editor.AppendText(temp.Length + 1, temp + "\n");
+                        editor.AppendText(temp.Length + 1, temp + Environment.NewLine);
                     }
                 }
                 editor.SetCurrentPos(oldPos);
