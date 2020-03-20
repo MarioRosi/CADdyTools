@@ -129,13 +129,13 @@ namespace org.rosenbohm.csharp.Tools
         {
             if (ClassStringTools.trimToEmpty(Value) == "NaN")
             {
-                Result = Double.NaN;
+                Result = double.NaN;
                 return true;
             }
             NumberFormatInfo ni = new NumberFormatInfo();
             ni.CurrencyDecimalSeparator = ".";
             ni.CurrencyGroupSeparator = "";
-            if (Double.TryParse(NormalFloatingNumber(Value), NumberStyles.Any, ni, out Result))
+            if (double.TryParse(NormalFloatingNumber(Value), NumberStyles.Any, ni, out Result))
                 return true;
             Result = 0.0;
             return false;
