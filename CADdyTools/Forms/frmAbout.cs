@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
 
@@ -28,6 +29,7 @@ namespace org.rosenbohm.csharp.CADdyTools.Forms
         {
             this.Left = left - (this.Width / 2);
             this.Top = top - (this.Height / 2);
+            this.lblCuVersion.Text = "CADdy Tools Plugin v" + Assembly.GetCallingAssembly().GetName().Version;
             this.ShowDialog();
         }
 

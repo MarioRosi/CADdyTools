@@ -17,7 +17,7 @@ namespace org.rosenbohm.csharp.Tools
             Int32 openFileCount = getOpenFileCount();
             if (openFileCount > 0)
             {
-                using (var cStringArray = new OwnClikeStringArray(openFileCount, Win32.MAX_PATH))
+                using (var cStringArray = new ClikeStringArray(openFileCount, Win32.MAX_PATH))
                 {
                     if (Win32.SendMessage(PluginBase.nppData._nppHandle, (uint)NppMsg.NPPM_GETOPENFILENAMES, cStringArray.NativePointer, openFileCount) != IntPtr.Zero)
                     {

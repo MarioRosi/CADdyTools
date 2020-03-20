@@ -7,7 +7,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 
-namespace org.rosenbohm.csharp
+namespace Kbg.NppPluginNET
 {
     /// <summary>Einstellunge für Koordtools</summary>
     public class Settings : INISettingsBase

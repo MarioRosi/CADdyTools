@@ -3,7 +3,6 @@ using System;
 using System.Runtime.InteropServices;
 using Kbg.NppPluginNET.PluginInfrastructure;
 using NppPlugin.DllExport;
-using org.rosenbohm.csharp;
 
 namespace Kbg.NppPluginNET
 {
@@ -58,13 +57,9 @@ namespace Kbg.NppPluginNET
                 Main.PluginCleanUp();
                 Marshal.FreeHGlobal(_ptrPluginName);
             }
-            else if (notification.Header.Code == (uint)NppMsg.NPPN_BUFFERACTIVATED)
-            {
-                Main.bufferIsActivated();
-            }
             else
             {
-                Main.OnNotification(notification);
+	            Main.OnNotification(notification);
             }
         }
     }

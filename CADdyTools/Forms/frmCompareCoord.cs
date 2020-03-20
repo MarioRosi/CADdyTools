@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using Kbg.NppPluginNET;
 
 namespace org.rosenbohm.csharp.CADdyTools.Forms
 {

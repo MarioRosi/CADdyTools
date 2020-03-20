@@ -1,4 +1,5 @@
-﻿using Kbg.NppPluginNET.PluginInfrastructure;
+﻿using Kbg.NppPluginNET;
+using Kbg.NppPluginNET.PluginInfrastructure;
 using org.rosenbohm.csharp.CADdy;
 using org.rosenbohm.csharp.Tools;
 using System;

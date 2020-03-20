@@ -10,7 +10,7 @@ using org.rosenbohm.csharp.CADdy;
 using org.rosenbohm.csharp.Tools;
 using org.rosenbohm.csharp.CADdyTools.Forms;
 
-namespace org.rosenbohm.csharp
+namespace Kbg.NppPluginNET
 {
     /* 
      * 64bit eintrag

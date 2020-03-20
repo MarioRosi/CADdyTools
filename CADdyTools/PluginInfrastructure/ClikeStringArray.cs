@@ -18,10 +18,10 @@ namespace Kbg.NppPluginNET.PluginInfrastructure
             for (int i = 0; i < num; i++)
             {
                 IntPtr item = Marshal.AllocHGlobal(stringCapacity);
-                Marshal.WriteIntPtr((IntPtr)(_nativeArray + (i * IntPtr.Size)), item);
+                Marshal.WriteIntPtr((IntPtr)((int)_nativeArray + (i * IntPtr.Size)), item);
                 _nativeItems.Add(item);
             }
-            Marshal.WriteIntPtr((IntPtr)(_nativeArray + (num * IntPtr.Size)), IntPtr.Zero);
+            Marshal.WriteIntPtr((IntPtr)((int)_nativeArray + (num * IntPtr.Size)), IntPtr.Zero);
         }
         public ClikeStringArray(List<string> lstStrings)
         {

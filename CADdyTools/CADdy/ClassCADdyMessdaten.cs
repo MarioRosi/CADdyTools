@@ -1,4 +1,5 @@
-﻿using Kbg.NppPluginNET.PluginInfrastructure;
+﻿using Kbg.NppPluginNET;
+using Kbg.NppPluginNET.PluginInfrastructure;
 using org.rosenbohm.csharp.Tools;
 using System;
 using System.Collections.Generic;
@@ -148,6 +149,7 @@ namespace org.rosenbohm.csharp.CADdy
                         editor.AppendText(temp.Length + 1, temp + Environment.NewLine);
                     }
                 }
+                editor.ConvertEOLs(0);
                 editor.SetSelection(selStart.Value, selEnd.Value);
                 editor.SetCurrentPos(oldPos);
                 editor.EndUndoAction();
@@ -184,6 +186,7 @@ namespace org.rosenbohm.csharp.CADdy
                         }
                     }
                 }
+                editor.ConvertEOLs(0);
                 editor.SetCurrentPos(oldPos);
                 editor.EndUndoAction();
             }
@@ -208,6 +211,7 @@ namespace org.rosenbohm.csharp.CADdy
                         editor.AppendText(temp.Length + 1, temp + Environment.NewLine);
                     }
                 }
+                editor.ConvertEOLs(0);
                 editor.SetCurrentPos(oldPos);
                 editor.EndUndoAction();
             }                            

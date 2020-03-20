@@ -32,7 +32,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblCuVersion = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.btnclose = new System.Windows.Forms.Button();
             this.gbAbout.SuspendLayout();
@@ -43,7 +43,7 @@
             this.gbAbout.Controls.Add(this.label4);
             this.gbAbout.Controls.Add(this.label3);
             this.gbAbout.Controls.Add(this.label2);
-            this.gbAbout.Controls.Add(this.label1);
+            this.gbAbout.Controls.Add(this.lblCuVersion);
             this.gbAbout.Controls.Add(this.linkLabel1);
             this.gbAbout.Controls.Add(this.btnclose);
             this.gbAbout.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -81,15 +81,15 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Author: Mario Rosenbohm";
             // 
-            // label1
+            // lblCuVersion
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(66, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(134, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "CADdy Tools Plugin v1.0.2";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblCuVersion.AutoSize = true;
+            this.lblCuVersion.Location = new System.Drawing.Point(66, 16);
+            this.lblCuVersion.Name = "lblCuVersion";
+            this.lblCuVersion.Size = new System.Drawing.Size(143, 13);
+            this.lblCuVersion.TabIndex = 2;
+            this.lblCuVersion.Text = "CADdy Tools Plugin v1.0.0.3";
+            this.lblCuVersion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // linkLabel1
             // 
@@ -136,7 +136,7 @@
         private System.Windows.Forms.GroupBox gbAbout;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblCuVersion;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Button btnclose;
         private System.Windows.Forms.Label label4;
