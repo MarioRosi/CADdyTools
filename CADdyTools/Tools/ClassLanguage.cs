@@ -45,7 +45,7 @@ namespace org.rosenbohm.csharp.Tools
         /// <returns></returns>
         private String getLanguage()
         {
-            String result = "";
+            String result = "EN";
             StringBuilder sbIniFilePath = new StringBuilder(Win32.MAX_PATH);
             Win32.SendMessage(PluginBase.nppData._nppHandle, (uint)NppMsg.NPPM_GETPLUGINSCONFIGDIR, Win32.MAX_PATH, sbIniFilePath);
             String iniFilePath = sbIniFilePath.ToString();
@@ -55,39 +55,43 @@ namespace org.rosenbohm.csharp.Tools
                 String readline = null;
                 Int16 counter = 0;
                 //    <Native-Langue name="English" filename="english.xml" version="6.8.2">
-                using (System.IO.StreamReader fileReader = System.IO.File.OpenText(iniFilePath))
+                if (System.IO.File.Exists(iniFilePath))
                 {
-                    while (counter < 30) // check counterMax
+
+                    using (System.IO.StreamReader fileReader = System.IO.File.OpenText(iniFilePath))
                     {
-                        readline = fileReader.ReadLine();
-                        counter++;
-                        if (readline.ToLowerInvariant().Contains("<native-langue"))
+                        while (counter < 30) // check counterMax
                         {
-                            string[] split = Regex.Split(readline, "^(.*)(<Native-Langue)(\\s+)(name=\")(((?!\").)*)(\")(.*)$");
-                            if ((split != null) && (split.Length > 4))
-                                readline = split[5];
+                            readline = fileReader.ReadLine();
+                            counter++;
+                            if (readline.ToLowerInvariant().Contains("<native-langue"))
+                            {
+                                string[] split = Regex.Split(readline, "^(.*)(<Native-Langue)(\\s+)(name=\")(((?!\").)*)(\")(.*)$");
+                                if ((split != null) && (split.Length > 4))
+                                    readline = split[5];
+                                else
+                                    readline = null;
+                                counter = 31; // Set counter to => max
+                            }
                             else
                                 readline = null;
-                            counter = 31; // Set counter to => max
                         }
-                        else
-                            readline = null;
+                        fileReader.Close();
                     }
-                    fileReader.Close();
-                }
-                if (readline != null)
-                {
-                    switch (readline.ToLowerInvariant())
+                    if (readline != null)
                     {
-                        case "deutsch":
-                            result = "DE";
-                            break;
-                        case "english":
-                            result = "EN";
-                            break;
-                        default:
-                            result = "EN";
-                            break;
+                        switch (readline.ToLowerInvariant())
+                        {
+                            case "deutsch":
+                                result = "DE";
+                                break;
+                            case "english":
+                                result = "EN";
+                                break;
+                            default:
+                                result = "EN";
+                                break;
+                        }
                     }
                 }
             }

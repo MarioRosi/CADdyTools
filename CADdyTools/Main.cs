@@ -13,14 +13,18 @@ using org.rosenbohm.csharp.CADdyTools.Forms;
 namespace Kbg.NppPluginNET
 {
     /* 
+     * 
+     * b6b60ec05f86e7458d93e632c9f1c533034c28cb400d0445082e29fbf4967e73  CADdyTools_v1015_x64.zip
+edeebc3b835e0335b6bce9ddf366ca312e9ab01168da30e45143a65759a4bd68  CADdyTools_v1015_x86.zip
+
      * 64bit eintrag
      * 
        {
 			"folder-name": "CADdyTools",
 			"display-name": "CADdyTools",
-			"version": "1.0.0.3",
-			"id": "b19936dcedace76f11b21a5906415bcc4a89d3ebd45a513b411c87aef3485638",
-			"repository": "https://github.com/MarioRosi/CADdyTools/releases/download/1.0.0.3/CADdyTools_v1003_x64.zip",
+			"version": "1.0.1.5",
+			"id": "b6b60ec05f86e7458d93e632c9f1c533034c28cb400d0445082e29fbf4967e73",
+			"repository": "https://github.com/MarioRosi/CADdyTools/releases/download/1.0.1.5/CADdyTools_v1015_x64.zip",
 			"description": "Notepad++-Plugin for manipulate CADdy-formated coordinate- and measure-textfiles",
 			"author": "Mario Rosenbohm",
 			"homepage": "https://github.com/MarioRosi/CADdyTools"
@@ -31,9 +35,9 @@ namespace Kbg.NppPluginNET
        {
 			"folder-name": "CADdyTools",
 			"display-name": "CADdyTools",
-			"version": "1.0.0.3",
-			"id": "82e97575fc1524692af778290309451d8d9d8bd96ee3d239579187427e2bd30b",
-			"repository": "https://github.com/MarioRosi/CADdyTools/releases/download/1.0.0.3/CADdyTools_v1003_x86.zip",
+			"version": "1.0.1.5",
+			"id": "edeebc3b835e0335b6bce9ddf366ca312e9ab01168da30e45143a65759a4bd68",
+			"repository": "https://github.com/MarioRosi/CADdyTools/releases/download/1.0.1.5/CADdyTools_v1015_x86.zip",
 			"description": "Notepad++-Plugin for manipulate CADdy-formated coordinate- and measure-textfiles",
 			"author": "Mario Rosenbohm",
 			"homepage": "https://github.com/MarioRosi/CADdyTools"
