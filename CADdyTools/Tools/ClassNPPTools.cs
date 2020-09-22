@@ -17,7 +17,7 @@ namespace org.rosenbohm.csharp.Tools
             Int32 openFileCount = getOpenFileCount();
             if (openFileCount > 0)
             {
-                using (var cStringArray = new ClikeStringArray(openFileCount, Win32.MAX_PATH))
+                using (OwnClikeStringArray cStringArray = new OwnClikeStringArray(openFileCount, Win32.MAX_PATH))
                 {
                     if (Win32.SendMessage(PluginBase.nppData._nppHandle, (uint)NppMsg.NPPM_GETOPENFILENAMES, cStringArray.NativePointer, openFileCount) != IntPtr.Zero)
                     {
@@ -72,7 +72,59 @@ namespace org.rosenbohm.csharp.Tools
         {
             var path = new StringBuilder(2000);
             Win32.SendMessage(PluginBase.nppData._nppHandle, (uint)NppMsg.NPPM_GETFULLCURRENTPATH, 0, path);
-            return path.ToString();
+            return path.ToString();            
+        }
+
+        public static IntPtr getPluginMenuHandle()
+        {
+            return Win32.SendMessage(PluginBase.nppData._nppHandle, 2049u, 0, 0);
+        }
+
+        internal static IntPtr FindPluginMenuItem(uint commandId, out uint index)
+        {
+            IntPtr pluginMenuHandle = ClassNPPTools.getPluginMenuHandle();
+            index = 0u;
+            if (pluginMenuHandle == IntPtr.Zero)
+            {
+                return IntPtr.Zero;
+            }
+            uint num = 0u;
+            while ((ulong)num < (ulong)((long)Win32Extendet.GetMenuItemCount(pluginMenuHandle)))
+            {
+                IntPtr subMenu = Win32Extendet.GetSubMenu(pluginMenuHandle, num, true);
+                if (!(subMenu == IntPtr.Zero))
+                {
+                    uint num2 = 0u;
+                    while ((ulong)num2 < (ulong)((long)Win32Extendet.GetMenuItemCount(subMenu)))
+                    {
+                        if (Win32Extendet.GetMenuItemId(subMenu, num2, true) == commandId)
+                        {
+                            index = num2;
+                            return subMenu;
+                        }
+                        num2 += 1u;
+                    }
+                }
+                num += 1u;
+            }
+            return IntPtr.Zero;
+        }
+
+        public static bool enablePluginMenuFunction(int myMenuIndex, bool enable)
+        {
+            bool result = false;
+            uint uIDEnableItem;
+            IntPtr intPtr = ClassNPPTools.FindPluginMenuItem((uint)PluginBase._funcItems.Items[myMenuIndex]._cmdID, out uIDEnableItem);
+            if (intPtr != IntPtr.Zero)
+            {
+                uint uEnable = 1024u;
+                if (!enable)
+                {
+                    uEnable = 1025u;
+                }
+                result = Win32Extendet.EnableMenuItem(intPtr, uIDEnableItem, uEnable);
+            }
+            return result;
         }
 
     }

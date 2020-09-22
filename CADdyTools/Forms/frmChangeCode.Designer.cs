@@ -1,4 +1,6 @@
-﻿namespace org.rosenbohm.csharp.CADdyTools.Forms
+﻿using Kbg.NppPluginNET.PluginInfrastructure;
+
+namespace org.rosenbohm.csharp.CADdyTools.Forms
 {
     partial class frmChangeCode
     {
@@ -19,6 +21,7 @@
             }
             base.Dispose(disposing);
         }
+
 
         #region Windows Form Designer generated code
 

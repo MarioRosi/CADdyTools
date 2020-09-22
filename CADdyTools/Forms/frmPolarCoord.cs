@@ -39,6 +39,11 @@ namespace org.rosenbohm.csharp.CADdyTools.Forms
             setLanguage();
         }
 
+        /// <summary>Mach mich zu</summary>
+        public void closeMe()
+        {
+            Win32.SendMessage(PluginBase.nppData._nppHandle, 2055u, 0, base.Handle);
+        }
         /// <summary>Sprachtexte setzten</summary>
         private void setLanguage()
         {

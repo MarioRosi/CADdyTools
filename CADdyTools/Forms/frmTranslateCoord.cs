@@ -80,5 +80,12 @@ namespace org.rosenbohm.csharp.CADdyTools.Forms
                 btnMakeTransl.Enabled = false;
             }
         }
+
+        /// <summary>Mach mich zu</summary>
+        public void closeMe()
+        {
+            Win32.SendMessage(PluginBase.nppData._nppHandle, 2055u, 0, base.Handle);
+        }
+
     }
 }

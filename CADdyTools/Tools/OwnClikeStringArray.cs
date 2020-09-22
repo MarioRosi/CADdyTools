@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 
 namespace Kbg.NppPluginNET.PluginInfrastructure
 {
-    [Obsolete("not use", true)]
+    //[Obsolete("not use", true)]
     public class OwnClikeStringArray : IDisposable
     {
         IntPtr _nativeArray;

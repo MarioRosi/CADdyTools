@@ -198,7 +198,7 @@
             this.tabCtrlSettings.Location = new System.Drawing.Point(0, 92);
             this.tabCtrlSettings.Name = "tabCtrlSettings";
             this.tabCtrlSettings.SelectedIndex = 0;
-            this.tabCtrlSettings.Size = new System.Drawing.Size(332, 584);
+            this.tabCtrlSettings.Size = new System.Drawing.Size(280, 584);
             this.tabCtrlSettings.TabIndex = 0;
             // 
             // tabPAllg
@@ -209,7 +209,7 @@
             this.tabPAllg.Location = new System.Drawing.Point(4, 22);
             this.tabPAllg.Name = "tabPAllg";
             this.tabPAllg.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPAllg.Size = new System.Drawing.Size(324, 558);
+            this.tabPAllg.Size = new System.Drawing.Size(272, 558);
             this.tabPAllg.TabIndex = 0;
             this.tabPAllg.Text = "allgemein";
             this.tabPAllg.UseVisualStyleBackColor = true;
@@ -221,7 +221,7 @@
             this.gbTrenner.Dock = System.Windows.Forms.DockStyle.Top;
             this.gbTrenner.Location = new System.Drawing.Point(3, 129);
             this.gbTrenner.Name = "gbTrenner";
-            this.gbTrenner.Size = new System.Drawing.Size(318, 72);
+            this.gbTrenner.Size = new System.Drawing.Size(266, 72);
             this.gbTrenner.TabIndex = 4;
             this.gbTrenner.TabStop = false;
             this.gbTrenner.Text = "Trenner";
@@ -256,7 +256,7 @@
             this.gbPointnumber.Dock = System.Windows.Forms.DockStyle.Top;
             this.gbPointnumber.Location = new System.Drawing.Point(3, 3);
             this.gbPointnumber.Name = "gbPointnumber";
-            this.gbPointnumber.Size = new System.Drawing.Size(318, 126);
+            this.gbPointnumber.Size = new System.Drawing.Size(266, 126);
             this.gbPointnumber.TabIndex = 3;
             this.gbPointnumber.TabStop = false;
             this.gbPointnumber.Text = "Punktname";
@@ -333,7 +333,7 @@
             this.tabPCoord.Location = new System.Drawing.Point(4, 22);
             this.tabPCoord.Name = "tabPCoord";
             this.tabPCoord.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPCoord.Size = new System.Drawing.Size(324, 558);
+            this.tabPCoord.Size = new System.Drawing.Size(272, 558);
             this.tabPCoord.TabIndex = 1;
             this.tabPCoord.Text = "Koordinaten";
             this.tabPCoord.UseVisualStyleBackColor = true;
@@ -349,7 +349,7 @@
             this.gbDescript.Dock = System.Windows.Forms.DockStyle.Top;
             this.gbDescript.Location = new System.Drawing.Point(3, 441);
             this.gbDescript.Name = "gbDescript";
-            this.gbDescript.Size = new System.Drawing.Size(318, 93);
+            this.gbDescript.Size = new System.Drawing.Size(266, 93);
             this.gbDescript.TabIndex = 5;
             this.gbDescript.TabStop = false;
             this.gbDescript.Text = "Beschreibung";
@@ -416,7 +416,7 @@
             this.gb_CoordCode.Dock = System.Windows.Forms.DockStyle.Top;
             this.gb_CoordCode.Location = new System.Drawing.Point(3, 348);
             this.gb_CoordCode.Name = "gb_CoordCode";
-            this.gb_CoordCode.Size = new System.Drawing.Size(318, 93);
+            this.gb_CoordCode.Size = new System.Drawing.Size(266, 93);
             this.gb_CoordCode.TabIndex = 4;
             this.gb_CoordCode.TabStop = false;
             this.gb_CoordCode.Text = "Code";
@@ -485,7 +485,7 @@
             this.gb_Elev.Dock = System.Windows.Forms.DockStyle.Top;
             this.gb_Elev.Location = new System.Drawing.Point(3, 233);
             this.gb_Elev.Name = "gb_Elev";
-            this.gb_Elev.Size = new System.Drawing.Size(318, 115);
+            this.gb_Elev.Size = new System.Drawing.Size(266, 115);
             this.gb_Elev.TabIndex = 3;
             this.gb_Elev.TabStop = false;
             this.gb_Elev.Text = "Höhe / Z";
@@ -571,7 +571,7 @@
             this.gb_HW.Dock = System.Windows.Forms.DockStyle.Top;
             this.gb_HW.Location = new System.Drawing.Point(3, 118);
             this.gb_HW.Name = "gb_HW";
-            this.gb_HW.Size = new System.Drawing.Size(318, 115);
+            this.gb_HW.Size = new System.Drawing.Size(266, 115);
             this.gb_HW.TabIndex = 2;
             this.gb_HW.TabStop = false;
             this.gb_HW.Text = "Hochwert / N";
@@ -657,7 +657,7 @@
             this.gb_RW.Dock = System.Windows.Forms.DockStyle.Top;
             this.gb_RW.Location = new System.Drawing.Point(3, 3);
             this.gb_RW.Name = "gb_RW";
-            this.gb_RW.Size = new System.Drawing.Size(318, 115);
+            this.gb_RW.Size = new System.Drawing.Size(266, 115);
             this.gb_RW.TabIndex = 1;
             this.gb_RW.TabStop = false;
             this.gb_RW.Text = "Rechtswert / E";
@@ -738,7 +738,7 @@
             this.tabPMessdaten.Location = new System.Drawing.Point(4, 22);
             this.tabPMessdaten.Name = "tabPMessdaten";
             this.tabPMessdaten.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPMessdaten.Size = new System.Drawing.Size(324, 558);
+            this.tabPMessdaten.Size = new System.Drawing.Size(272, 558);
             this.tabPMessdaten.TabIndex = 2;
             this.tabPMessdaten.Text = "Messdaten";
             this.tabPMessdaten.UseVisualStyleBackColor = true;
@@ -755,7 +755,7 @@
             this.gbZielungen.Dock = System.Windows.Forms.DockStyle.Top;
             this.gbZielungen.Location = new System.Drawing.Point(3, 348);
             this.gbZielungen.Name = "gbZielungen";
-            this.gbZielungen.Size = new System.Drawing.Size(301, 665);
+            this.gbZielungen.Size = new System.Drawing.Size(249, 665);
             this.gbZielungen.TabIndex = 1;
             this.gbZielungen.TabStop = false;
             this.gbZielungen.Text = "Zielpunktdaten";
@@ -771,7 +771,7 @@
             this.gb_ZielDescr.Dock = System.Windows.Forms.DockStyle.Top;
             this.gb_ZielDescr.Location = new System.Drawing.Point(3, 569);
             this.gb_ZielDescr.Name = "gb_ZielDescr";
-            this.gb_ZielDescr.Size = new System.Drawing.Size(295, 93);
+            this.gb_ZielDescr.Size = new System.Drawing.Size(243, 93);
             this.gb_ZielDescr.TabIndex = 14;
             this.gb_ZielDescr.TabStop = false;
             this.gb_ZielDescr.Text = "Beschreibung";
@@ -838,7 +838,7 @@
             this.gb_ZielCode.Dock = System.Windows.Forms.DockStyle.Top;
             this.gb_ZielCode.Location = new System.Drawing.Point(3, 476);
             this.gb_ZielCode.Name = "gb_ZielCode";
-            this.gb_ZielCode.Size = new System.Drawing.Size(295, 93);
+            this.gb_ZielCode.Size = new System.Drawing.Size(243, 93);
             this.gb_ZielCode.TabIndex = 13;
             this.gb_ZielCode.TabStop = false;
             this.gb_ZielCode.Text = "Code";
@@ -907,7 +907,7 @@
             this.gb_ZielD.Dock = System.Windows.Forms.DockStyle.Top;
             this.gb_ZielD.Location = new System.Drawing.Point(3, 361);
             this.gb_ZielD.Name = "gb_ZielD";
-            this.gb_ZielD.Size = new System.Drawing.Size(295, 115);
+            this.gb_ZielD.Size = new System.Drawing.Size(243, 115);
             this.gb_ZielD.TabIndex = 11;
             this.gb_ZielD.TabStop = false;
             this.gb_ZielD.Text = "Reflektorhöhe / d";
@@ -993,7 +993,7 @@
             this.gb_ZielS.Dock = System.Windows.Forms.DockStyle.Top;
             this.gb_ZielS.Location = new System.Drawing.Point(3, 246);
             this.gb_ZielS.Name = "gb_ZielS";
-            this.gb_ZielS.Size = new System.Drawing.Size(295, 115);
+            this.gb_ZielS.Size = new System.Drawing.Size(243, 115);
             this.gb_ZielS.TabIndex = 10;
             this.gb_ZielS.TabStop = false;
             this.gb_ZielS.Text = "Schrägstrecke / s";
@@ -1079,7 +1079,7 @@
             this.gb_ZielV.Dock = System.Windows.Forms.DockStyle.Top;
             this.gb_ZielV.Location = new System.Drawing.Point(3, 131);
             this.gb_ZielV.Name = "gb_ZielV";
-            this.gb_ZielV.Size = new System.Drawing.Size(295, 115);
+            this.gb_ZielV.Size = new System.Drawing.Size(243, 115);
             this.gb_ZielV.TabIndex = 9;
             this.gb_ZielV.TabStop = false;
             this.gb_ZielV.Text = "Vertikal / v";
@@ -1165,7 +1165,7 @@
             this.gb_ZielHz.Dock = System.Windows.Forms.DockStyle.Top;
             this.gb_ZielHz.Location = new System.Drawing.Point(3, 16);
             this.gb_ZielHz.Name = "gb_ZielHz";
-            this.gb_ZielHz.Size = new System.Drawing.Size(295, 115);
+            this.gb_ZielHz.Size = new System.Drawing.Size(243, 115);
             this.gb_ZielHz.TabIndex = 8;
             this.gb_ZielHz.TabStop = false;
             this.gb_ZielHz.Text = "Richtung / hz";
@@ -1247,7 +1247,7 @@
             this.gbStandpunkt.Dock = System.Windows.Forms.DockStyle.Top;
             this.gbStandpunkt.Location = new System.Drawing.Point(3, 3);
             this.gbStandpunkt.Name = "gbStandpunkt";
-            this.gbStandpunkt.Size = new System.Drawing.Size(301, 345);
+            this.gbStandpunkt.Size = new System.Drawing.Size(249, 345);
             this.gbStandpunkt.TabIndex = 0;
             this.gbStandpunkt.TabStop = false;
             this.gbStandpunkt.Text = "Standpunktdaten";
@@ -1264,7 +1264,7 @@
             this.gb_STDescr.Dock = System.Windows.Forms.DockStyle.Top;
             this.gb_STDescr.Location = new System.Drawing.Point(3, 241);
             this.gb_STDescr.Name = "gb_STDescr";
-            this.gb_STDescr.Size = new System.Drawing.Size(295, 101);
+            this.gb_STDescr.Size = new System.Drawing.Size(243, 101);
             this.gb_STDescr.TabIndex = 8;
             this.gb_STDescr.TabStop = false;
             this.gb_STDescr.Text = "Beschreibung";
@@ -1332,7 +1332,7 @@
             this.gb_STCode.Dock = System.Windows.Forms.DockStyle.Top;
             this.gb_STCode.Location = new System.Drawing.Point(3, 140);
             this.gb_STCode.Name = "gb_STCode";
-            this.gb_STCode.Size = new System.Drawing.Size(295, 101);
+            this.gb_STCode.Size = new System.Drawing.Size(243, 101);
             this.gb_STCode.TabIndex = 7;
             this.gb_STCode.TabStop = false;
             this.gb_STCode.Text = "Code";
@@ -1402,7 +1402,7 @@
             this.gb_I.Dock = System.Windows.Forms.DockStyle.Top;
             this.gb_I.Location = new System.Drawing.Point(3, 16);
             this.gb_I.Name = "gb_I";
-            this.gb_I.Size = new System.Drawing.Size(295, 124);
+            this.gb_I.Size = new System.Drawing.Size(243, 124);
             this.gb_I.TabIndex = 6;
             this.gb_I.TabStop = false;
             this.gb_I.Text = "Instrumentenhöhe / i";
@@ -1482,7 +1482,7 @@
             this.gbButtons.Dock = System.Windows.Forms.DockStyle.Top;
             this.gbButtons.Location = new System.Drawing.Point(0, 0);
             this.gbButtons.Name = "gbButtons";
-            this.gbButtons.Size = new System.Drawing.Size(332, 86);
+            this.gbButtons.Size = new System.Drawing.Size(284, 86);
             this.gbButtons.TabIndex = 1;
             this.gbButtons.TabStop = false;
             // 
@@ -1494,7 +1494,7 @@
             this.btnApplay.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnApplay.Location = new System.Drawing.Point(3, 50);
             this.btnApplay.Name = "btnApplay";
-            this.btnApplay.Size = new System.Drawing.Size(325, 24);
+            this.btnApplay.Size = new System.Drawing.Size(277, 24);
             this.btnApplay.TabIndex = 2;
             this.btnApplay.Text = "Werte übernehmen";
             this.btnApplay.UseVisualStyleBackColor = false;
@@ -1508,7 +1508,7 @@
             this.btnSetDefault.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnSetDefault.Location = new System.Drawing.Point(3, 20);
             this.btnSetDefault.Name = "btnSetDefault";
-            this.btnSetDefault.Size = new System.Drawing.Size(325, 24);
+            this.btnSetDefault.Size = new System.Drawing.Size(277, 24);
             this.btnSetDefault.TabIndex = 1;
             this.btnSetDefault.Text = "setzte Defaultwerte";
             this.btnSetDefault.UseVisualStyleBackColor = false;
@@ -1518,7 +1518,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(332, 675);
+            this.ClientSize = new System.Drawing.Size(284, 675);
             this.Controls.Add(this.gbButtons);
             this.Controls.Add(this.tabCtrlSettings);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

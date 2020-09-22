@@ -158,6 +158,7 @@
     <Compile Include="Settingshelper\INIIgnoreThis.cs" />
     <Compile Include="Settingshelper\INIPropertyName.cs" />
     <Compile Include="Settingshelper\INISettingsBase.cs" />
+    <Compile Include="Tools\BabyGridMsg.cs" />
     <Compile Include="Tools\ClassConverters.cs" />
     <Compile Include="Tools\ClassFuzzyLogic.cs" />
     <Compile Include="Tools\ClassLanguage.cs" />
@@ -166,6 +167,8 @@
     <Compile Include="Tools\ClassRegexTools.cs" />
     <Compile Include="Tools\ClassStringTools.cs" />
     <Compile Include="Tools\OwnClikeStringArray.cs" />
+    <Compile Include="Tools\Win32Extendet.cs" />
+    <Compile Include="Tools\_BGCELL.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Forms\frmAbout.resx">

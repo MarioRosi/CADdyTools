@@ -105,5 +105,11 @@ namespace org.rosenbohm.csharp.CADdyTools.Forms
                     MessageBox.Show(language.getLanguageText("MSG_BOX_frmRotateCoord_notdirection"));
             }
         }
+        /// <summary>Mach mich zu</summary>
+        public void closeMe()
+        {
+            Win32.SendMessage(PluginBase.nppData._nppHandle, 2055u, 0, base.Handle);
+        }
+
     }
 }

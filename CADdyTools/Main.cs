@@ -13,18 +13,22 @@ using org.rosenbohm.csharp.CADdyTools.Forms;
 namespace Kbg.NppPluginNET
 {
     /* 
+     * Make New Release
+     * 1. compile x86 & x64
+     * 2. File CADdyTools.dll + CADdyTools_Lang.ini => CADdyTools_vAAAA_xBB.zip (AAAA = akt. Version z.Zt. 1137 BB = 86/64)
+     * 3. calc SHA-256-Hash  NP++->Werkzeuge->SHA-256->Aus Dateien erstellen (aus den *.zip!)
      * 
-     * b6b60ec05f86e7458d93e632c9f1c533034c28cb400d0445082e29fbf4967e73  CADdyTools_v1015_x64.zip
-edeebc3b835e0335b6bce9ddf366ca312e9ab01168da30e45143a65759a4bd68  CADdyTools_v1015_x86.zip
-
+     * 7ccbfb712e3b6757137f4921de6e6f4f83f9c258248137690c0dd5de9262c5dd  CADdyTools_v1137_x86.zip
+     * 65c03a40c28dd1b65489aa5dee4df5219ac1db476b751a9c3312aea3cb60cda2  CADdyTools_v1137_x64.zip
+     * 
      * 64bit eintrag
      * 
        {
 			"folder-name": "CADdyTools",
 			"display-name": "CADdyTools",
-			"version": "1.0.1.5",
-			"id": "b6b60ec05f86e7458d93e632c9f1c533034c28cb400d0445082e29fbf4967e73",
-			"repository": "https://github.com/MarioRosi/CADdyTools/releases/download/1.0.1.5/CADdyTools_v1015_x64.zip",
+			"version": "1.1.3.7",
+			"id": "7ccbfb712e3b6757137f4921de6e6f4f83f9c258248137690c0dd5de9262c5dd",
+			"repository": "https://github.com/MarioRosi/CADdyTools/releases/download/1.1.3.7/CADdyTools_v1137_x64.zip",
 			"description": "Notepad++-Plugin for manipulate CADdy-formated coordinate- and measure-textfiles",
 			"author": "Mario Rosenbohm",
 			"homepage": "https://github.com/MarioRosi/CADdyTools"
@@ -35,9 +39,9 @@ edeebc3b835e0335b6bce9ddf366ca312e9ab01168da30e45143a65759a4bd68  CADdyTools_v10
        {
 			"folder-name": "CADdyTools",
 			"display-name": "CADdyTools",
-			"version": "1.0.1.5",
-			"id": "edeebc3b835e0335b6bce9ddf366ca312e9ab01168da30e45143a65759a4bd68",
-			"repository": "https://github.com/MarioRosi/CADdyTools/releases/download/1.0.1.5/CADdyTools_v1015_x86.zip",
+			"version": "1.1.3.7",
+			"id": "7ccbfb712e3b6757137f4921de6e6f4f83f9c258248137690c0dd5de9262c5dd",
+			"repository": "https://github.com/MarioRosi/CADdyTools/releases/download/1.1.3.7/CADdyTools_v1137_x86.zip",
 			"description": "Notepad++-Plugin for manipulate CADdy-formated coordinate- and measure-textfiles",
 			"author": "Mario Rosenbohm",
 			"homepage": "https://github.com/MarioRosi/CADdyTools"
@@ -46,7 +50,37 @@ edeebc3b835e0335b6bce9ddf366ca312e9ab01168da30e45143a65759a4bd68  CADdyTools_v10
          
          */
 
-    class Main
+    /// <summary>Enum zur erzeugung der Menüids</summary>
+    internal enum CADdyToolsMenuId
+    {
+        Menue_Coord = 0,
+        Menue_Coord_FormCADdy = 1,
+        Menue_Coord_FormExcel = 2,
+        Menue_Coord_Sort = 3,
+        Menue_Coord_SortCol1 = 4,
+        Menue_Coord_SortCol2 = 5,
+        Menue_Coord_SortCol3 = 6,
+        Menue_Coord_SortCol4 = 7,
+        Menue_Coord_SortCol5 = 8,
+        Menue_Coord_Rotation = 9,
+        Menue_Coord_Translation = 10,
+        Menue_Coord_Transformation = 11,
+        Menue_Coord_Polar = 12,
+        Menue_Coord_Compare = 13,
+        Menue_Dummy_1 = 14,
+        Menue_Measure = 15,
+        Menue_Measure_FormCADdy = 16,
+        Menue_Measure_FormExcel = 17,
+        Menue_Measure_FormCAPLAN = 18,
+        Menue_Measure_SetID = 19,
+        Menue_Dummy_2 = 20,
+        Menue_MeasCode = 21,
+        Menue_ChangeCode = 22,
+        Menue_Dummy_3 = 23,
+        Menue_Settings = 24,
+        About = 25
+    }
+    internal class Main
     {
         [return: MarshalAs(UnmanagedType.Bool)]
         [DllImport("user32.dll")]
@@ -62,6 +96,8 @@ edeebc3b835e0335b6bce9ddf366ca312e9ab01168da30e45143a65759a4bd68  CADdyTools_v10
         }
         internal static RECT nppMainRect = new RECT();
 
+        public static Boolean isFuctionSwitch = false;
+
         internal const string PluginName = "CADdyTools";
         static String iniFilePath = null;
 
@@ -73,7 +109,7 @@ edeebc3b835e0335b6bce9ddf366ca312e9ab01168da30e45143a65759a4bd68  CADdyTools_v10
 
         static frmAbout frmAboutprt = null;
 
-        static frmChangeCode frmChange = null;
+        static frmChangeCode frmChangeCod = null;
         static int idFrmChangeCode = -10002;
 
         static frmChangeID frmChangeid = null;
@@ -117,14 +153,11 @@ edeebc3b835e0335b6bce9ddf366ca312e9ab01168da30e45143a65759a4bd68  CADdyTools_v10
 
         public static void OnNotification(ScNotification notification)
         {
-            // This method is invoked whenever something is happening in notepad++
-            // use eg. as
-            // if (notification.Header.Code == (uint)NppMsg.NPPN_xxx)
-            // { ... }
-            // or
-            //
-            // if (notification.Header.Code == (uint)SciMsg.SCNxxx)
-            // { ... }
+            // 1010u = ???
+            if (notification.Header.Code == 1010u)
+            {
+                Main.bufferIsActivated();
+            }
         }
 
         internal static void CommandMenuInit()
@@ -143,34 +176,34 @@ edeebc3b835e0335b6bce9ddf366ca312e9ab01168da30e45143a65759a4bd68  CADdyTools_v10
 
             cADdyPoints = new ClassCADdyPunkte(ref pluginLanguage);
             cADdyMessdaten = new ClassCADdyMessdaten(ref pluginLanguage);
-            
 
-            PluginBase.SetCommand(0, pluginLanguage.getLanguageText("Menue_Coord"), dummy);
-            PluginBase.SetCommand(11, pluginLanguage.getLanguageText("Menue_Coord_FormCADdy"), formatCADdyKoord, new ShortcutKey(false, false, false, Keys.None));
-            PluginBase.SetCommand(12, pluginLanguage.getLanguageText("Menue_Coord_FormExcel"), formatExcelKoord, new ShortcutKey(false, false, false, Keys.None));
-            PluginBase.SetCommand(20, pluginLanguage.getLanguageText("Menue_Coord_Sort"), dummy);
-            PluginBase.SetCommand(21, pluginLanguage.getLanguageText("Menue_Coord_SortCol1"), sortByNumber, new ShortcutKey(false, false, false, Keys.None));
-            PluginBase.SetCommand(22, pluginLanguage.getLanguageText("Menue_Coord_SortCol2"), sortByEast, new ShortcutKey(false, false, false, Keys.None));
-            PluginBase.SetCommand(23, pluginLanguage.getLanguageText("Menue_Coord_SortCol3"), sortByNorth, new ShortcutKey(false, false, false, Keys.None));
-            PluginBase.SetCommand(24, pluginLanguage.getLanguageText("Menue_Coord_SortCol4"), sortByElev, new ShortcutKey(false, false, false, Keys.None));
-            PluginBase.SetCommand(25, pluginLanguage.getLanguageText("Menue_Coord_SortCol5"), sortByCode, new ShortcutKey(false, false, false, Keys.None));
-            PluginBase.SetCommand(30, pluginLanguage.getLanguageText("Menue_Coord_Rotation"), rotateCoordDialog, new ShortcutKey(false, false, false, Keys.None));
-            PluginBase.SetCommand(31, pluginLanguage.getLanguageText("Menue_Coord_Translation"), translateCoordDialog, new ShortcutKey(false, false, false, Keys.None));
-            PluginBase.SetCommand(32, pluginLanguage.getLanguageText("Menue_Coord_Transformation"), transformationCoordDialog, new ShortcutKey(false, false, false, Keys.None));
-            PluginBase.SetCommand(33, pluginLanguage.getLanguageText("Menue_Coord_Polar"), polarCoordDialog, new ShortcutKey(false, false, false, Keys.None));
-            PluginBase.SetCommand(34, pluginLanguage.getLanguageText("Menue_Coord_Compare"), compareCoordDialog, new ShortcutKey(false, false, false, Keys.None));
-            PluginBase.SetCommand(69, "----", null);
-            PluginBase.SetCommand(70, pluginLanguage.getLanguageText("Menue_Measure"), dummy);
-            PluginBase.SetCommand(71, pluginLanguage.getLanguageText("Menue_Measure_FormCADdy"), formatCADdyMessaten, new ShortcutKey(false, false, false, Keys.None));
-            PluginBase.SetCommand(72, pluginLanguage.getLanguageText("Menue_Measure_FormExcel"), formatExcelMessaten, new ShortcutKey(false, false, false, Keys.None));
-            PluginBase.SetCommand(73, pluginLanguage.getLanguageText("Menue_Measure_FormCAPLAN"), formatCAPLANMessaten, new ShortcutKey(false, false, false, Keys.None));
-            PluginBase.SetCommand(74, pluginLanguage.getLanguageText("Menue_Measure_SetID"), changeIDDialog);
-            PluginBase.SetCommand(79, "----", null);
-            PluginBase.SetCommand(80, pluginLanguage.getLanguageText("Menue_MeasCode"), dummy);
-            PluginBase.SetCommand(81, pluginLanguage.getLanguageText("Menue_ChangeCode"), changeCodeDialog);
-            PluginBase.SetCommand(98, "----", null);
-            PluginBase.SetCommand(99, pluginLanguage.getLanguageText("Menue_Settings"), settingsDialog);
-            PluginBase.SetCommand(100, "About ...", aboutDialog);            
+
+            PluginBase.SetCommand((int)CADdyToolsMenuId.Menue_Coord, pluginLanguage.getLanguageText("Menue_Coord"), dummy);
+            PluginBase.SetCommand((int)CADdyToolsMenuId.Menue_Coord_FormCADdy, pluginLanguage.getLanguageText("Menue_Coord_FormCADdy"), formatCADdyKoord, new ShortcutKey(false, false, false, Keys.None));
+            PluginBase.SetCommand((int)CADdyToolsMenuId.Menue_Coord_FormExcel, pluginLanguage.getLanguageText("Menue_Coord_FormExcel"), formatExcelKoord, new ShortcutKey(false, false, false, Keys.None));
+            PluginBase.SetCommand((int)CADdyToolsMenuId.Menue_Coord_Sort, pluginLanguage.getLanguageText("Menue_Coord_Sort"), dummy);
+            PluginBase.SetCommand((int)CADdyToolsMenuId.Menue_Coord_SortCol1, pluginLanguage.getLanguageText("Menue_Coord_SortCol1"), sortByNumber, new ShortcutKey(false, false, false, Keys.None));
+            PluginBase.SetCommand((int)CADdyToolsMenuId.Menue_Coord_SortCol2, pluginLanguage.getLanguageText("Menue_Coord_SortCol2"), sortByEast, new ShortcutKey(false, false, false, Keys.None));
+            PluginBase.SetCommand((int)CADdyToolsMenuId.Menue_Coord_SortCol3, pluginLanguage.getLanguageText("Menue_Coord_SortCol3"), sortByNorth, new ShortcutKey(false, false, false, Keys.None));
+            PluginBase.SetCommand((int)CADdyToolsMenuId.Menue_Coord_SortCol4, pluginLanguage.getLanguageText("Menue_Coord_SortCol4"), sortByElev, new ShortcutKey(false, false, false, Keys.None));
+            PluginBase.SetCommand((int)CADdyToolsMenuId.Menue_Coord_SortCol5, pluginLanguage.getLanguageText("Menue_Coord_SortCol5"), sortByCode, new ShortcutKey(false, false, false, Keys.None));
+            PluginBase.SetCommand((int)CADdyToolsMenuId.Menue_Coord_Rotation, pluginLanguage.getLanguageText("Menue_Coord_Rotation"), rotateCoordDialog, new ShortcutKey(false, false, false, Keys.None));
+            PluginBase.SetCommand((int)CADdyToolsMenuId.Menue_Coord_Translation, pluginLanguage.getLanguageText("Menue_Coord_Translation"), translateCoordDialog, new ShortcutKey(false, false, false, Keys.None));
+            PluginBase.SetCommand((int)CADdyToolsMenuId.Menue_Coord_Transformation, pluginLanguage.getLanguageText("Menue_Coord_Transformation"), transformationCoordDialog, new ShortcutKey(false, false, false, Keys.None));
+            PluginBase.SetCommand((int)CADdyToolsMenuId.Menue_Coord_Polar, pluginLanguage.getLanguageText("Menue_Coord_Polar"), polarCoordDialog, new ShortcutKey(false, false, false, Keys.None));
+            PluginBase.SetCommand((int)CADdyToolsMenuId.Menue_Coord_Compare, pluginLanguage.getLanguageText("Menue_Coord_Compare"), compareCoordDialog, new ShortcutKey(false, false, false, Keys.None));
+            PluginBase.SetCommand((int)CADdyToolsMenuId.Menue_Dummy_1, "----", null);
+            PluginBase.SetCommand((int)CADdyToolsMenuId.Menue_Measure, pluginLanguage.getLanguageText("Menue_Measure"), dummy);
+            PluginBase.SetCommand((int)CADdyToolsMenuId.Menue_Measure_FormCADdy, pluginLanguage.getLanguageText("Menue_Measure_FormCADdy"), formatCADdyMessaten, new ShortcutKey(false, false, false, Keys.None));
+            PluginBase.SetCommand((int)CADdyToolsMenuId.Menue_Measure_FormExcel, pluginLanguage.getLanguageText("Menue_Measure_FormExcel"), formatExcelMessaten, new ShortcutKey(false, false, false, Keys.None));
+            PluginBase.SetCommand((int)CADdyToolsMenuId.Menue_Measure_FormCAPLAN, pluginLanguage.getLanguageText("Menue_Measure_FormCAPLAN"), formatCAPLANMessaten, new ShortcutKey(false, false, false, Keys.None));
+            PluginBase.SetCommand((int)CADdyToolsMenuId.Menue_Measure_SetID, pluginLanguage.getLanguageText("Menue_Measure_SetID"), changeIDDialog);
+            PluginBase.SetCommand((int)CADdyToolsMenuId.Menue_Dummy_2, "----", null);
+            PluginBase.SetCommand((int)CADdyToolsMenuId.Menue_MeasCode, pluginLanguage.getLanguageText("Menue_MeasCode"), dummy);
+            PluginBase.SetCommand((int)CADdyToolsMenuId.Menue_ChangeCode, pluginLanguage.getLanguageText("Menue_ChangeCode"), changeCodeDialog);
+            PluginBase.SetCommand((int)CADdyToolsMenuId.Menue_Dummy_3, "----", null);
+            PluginBase.SetCommand((int)CADdyToolsMenuId.Menue_Settings, pluginLanguage.getLanguageText("Menue_Settings"), settingsDialog);
+            PluginBase.SetCommand((int)CADdyToolsMenuId.About, "About ...", aboutDialog);
         }
 
         internal static void SetToolBarIcon()
@@ -188,25 +221,150 @@ edeebc3b835e0335b6bce9ddf366ca312e9ab01168da30e45143a65759a4bd68  CADdyTools_v10
         /// <summary>Tabreiter wurde aktiviert!</summary>
         internal static void bufferIsActivated()
         {
-            cuTabWhatIsThis = ClassCADdyWhatIAm.check(pluginSettings);
-            switch (cuTabWhatIsThis)
+            if (!Main.isFuctionSwitch)
             {
-                case enWhatIAm.CADdyCoord:
-                    cADdyPoints.getPointsFromCurrentCADdy(pluginSettings);
-                    cADdyMessdaten.clear();
-                    break;
-                case enWhatIAm.CADdyMeasure:
-                    cADdyMessdaten.getMeasuresFromCurrentCADdy(pluginSettings);
-                    cADdyPoints.clear();
-                    break;
+                Main.cuTabWhatIsThis = ClassCADdyWhatIAm.check(pluginSettings);
+
+                if (cuTabWhatIsThis != enWhatIAm.CADdyCoord)
+                {
+                    if (cuTabWhatIsThis == enWhatIAm.CADdyMeasure)
+                    {
+                        Main.cADdyMessdaten.getMeasuresFromCurrentCADdy(Main.pluginSettings);
+                        Main.cADdyPoints.clear();
+                    }
+                }
+                else if (cuTabWhatIsThis == enWhatIAm.CADdyCoord)
+                {
+                    Main.cADdyPoints.getPointsFromCurrentCADdy(Main.pluginSettings);
+                    Main.cADdyMessdaten.clear();
+                }
+                else
+                {
+
+                }
+                int num = ClassNPPTools.getOpenFileCount() - 1;
+
+
+                ClassNPPTools.enablePluginMenuFunction((int)CADdyToolsMenuId.Menue_Coord_FormCADdy, Main.cuTabWhatIsThis == enWhatIAm.CADdyCoord);
+                ClassNPPTools.enablePluginMenuFunction((int)CADdyToolsMenuId.Menue_Coord_FormExcel, Main.cuTabWhatIsThis == enWhatIAm.CADdyCoord);
+                ClassNPPTools.enablePluginMenuFunction((int)CADdyToolsMenuId.Menue_Coord_SortCol1, Main.cuTabWhatIsThis == enWhatIAm.CADdyCoord);
+                ClassNPPTools.enablePluginMenuFunction((int)CADdyToolsMenuId.Menue_Coord_SortCol2, Main.cuTabWhatIsThis == enWhatIAm.CADdyCoord);
+                ClassNPPTools.enablePluginMenuFunction((int)CADdyToolsMenuId.Menue_Coord_SortCol3, Main.cuTabWhatIsThis == enWhatIAm.CADdyCoord);
+                ClassNPPTools.enablePluginMenuFunction((int)CADdyToolsMenuId.Menue_Coord_SortCol4, Main.cuTabWhatIsThis == enWhatIAm.CADdyCoord);
+                ClassNPPTools.enablePluginMenuFunction((int)CADdyToolsMenuId.Menue_Coord_SortCol5, Main.cuTabWhatIsThis == enWhatIAm.CADdyCoord);
+                ClassNPPTools.enablePluginMenuFunction((int)CADdyToolsMenuId.Menue_Coord_Rotation, Main.cuTabWhatIsThis == enWhatIAm.CADdyCoord);
+                ClassNPPTools.enablePluginMenuFunction((int)CADdyToolsMenuId.Menue_Coord_Translation, Main.cuTabWhatIsThis == enWhatIAm.CADdyCoord);
+                ClassNPPTools.enablePluginMenuFunction((int)CADdyToolsMenuId.Menue_Coord_Transformation, Main.cuTabWhatIsThis == enWhatIAm.CADdyCoord && num == 2);
+                ClassNPPTools.enablePluginMenuFunction((int)CADdyToolsMenuId.Menue_Coord_Polar, Main.cuTabWhatIsThis == enWhatIAm.CADdyCoord);
+                ClassNPPTools.enablePluginMenuFunction((int)CADdyToolsMenuId.Menue_Coord_Compare, Main.cuTabWhatIsThis == enWhatIAm.CADdyCoord && num == 2);
+
+                ClassNPPTools.enablePluginMenuFunction((int)CADdyToolsMenuId.Menue_Measure_FormCADdy, Main.cuTabWhatIsThis == enWhatIAm.CADdyMeasure);
+                ClassNPPTools.enablePluginMenuFunction((int)CADdyToolsMenuId.Menue_Measure_FormExcel, Main.cuTabWhatIsThis == enWhatIAm.CADdyMeasure);
+                ClassNPPTools.enablePluginMenuFunction((int)CADdyToolsMenuId.Menue_Measure_FormCAPLAN, Main.cuTabWhatIsThis == enWhatIAm.CADdyMeasure);
+                ClassNPPTools.enablePluginMenuFunction((int)CADdyToolsMenuId.Menue_Measure_SetID, Main.cuTabWhatIsThis == enWhatIAm.CADdyMeasure);
+
+                ClassNPPTools.enablePluginMenuFunction((int)CADdyToolsMenuId.Menue_ChangeCode, Main.cuTabWhatIsThis > enWhatIAm.iDontKnown);
+                
+
+                ClassNPPTools.enablePluginMenuFunction((int)CADdyToolsMenuId.Menue_Coord, false);
+                ClassNPPTools.enablePluginMenuFunction((int)CADdyToolsMenuId.Menue_Coord_Sort, false);
+                ClassNPPTools.enablePluginMenuFunction((int)CADdyToolsMenuId.Menue_Measure, false);
+                ClassNPPTools.enablePluginMenuFunction((int)CADdyToolsMenuId.Menue_MeasCode, false);
+                ClassNPPTools.enablePluginMenuFunction((int)CADdyToolsMenuId.Menue_Dummy_1, false);
+                ClassNPPTools.enablePluginMenuFunction((int)CADdyToolsMenuId.Menue_Dummy_2, false);
+                ClassNPPTools.enablePluginMenuFunction((int)CADdyToolsMenuId.Menue_Dummy_3, false);
+
+                if (Main.frmChangeCod != null)
+                {
+                    if (Main.cuTabWhatIsThis != enWhatIAm.iDontKnown)
+                    {
+                        Main.frmChangeCod.readCuDatas();
+                    }
+                    else
+                    {
+                        Main.frmChangeCod.closeMe();
+                        Main.frmChangeCod.Dispose();
+                        Main.frmChangeCod = null;
+                    }
+                }
+                if (Main.frmChangeid != null)
+                {
+                    if (Main.cuTabWhatIsThis == enWhatIAm.CADdyMeasure)
+                    {
+                        Main.frmChangeid.readCuDatas();
+                    }
+                    else
+                    {
+                        Main.frmChangeid.closeMe();
+                        Main.frmChangeid.Dispose();
+                        Main.frmChangeid = null;
+                    }
+                }
+                if (Main.cuTabWhatIsThis == enWhatIAm.CADdyCoord)
+                {
+                    if (Main.frmRotate != null)
+                    {
+                        Main.frmRotate.readCuDatas();
+                    }
+                    if (Main.frmPolar != null)
+                    {
+                        Main.frmPolar.readCuDatas();
+                    }
+                    if (Main.frmTranslate != null)
+                    {
+                        Main.frmTranslate.readCuDatas();
+                    }
+                    if (num != 2)
+                    {
+                        if (Main.frmCompare != null)
+                        {
+                            Main.frmCompare.closeMe();
+                            Main.frmCompare.Dispose();
+                            Main.frmCompare = null;
+                        }
+                        if (Main.frmTransform != null)
+                        {
+                            Main.frmTransform.closeMe();
+                            Main.frmTransform.Dispose();
+                            Main.frmTransform = null;
+                            return;
+                        }
+                    }
+                }
+                else
+                {
+                    if (Main.frmRotate != null)
+                    {
+                        Main.frmRotate.closeMe();
+                        Main.frmRotate.Dispose();
+                        Main.frmRotate = null;
+                    }
+                    if (Main.frmPolar != null)
+                    {
+                        Main.frmPolar.closeMe();
+                        Main.frmPolar.Dispose();
+                        Main.frmPolar = null;
+                    }
+                    if (Main.frmCompare != null)
+                    {
+                        Main.frmCompare.closeMe();
+                        Main.frmCompare.Dispose();
+                        Main.frmCompare = null;
+                    }
+                    if (Main.frmTranslate != null)
+                    {
+                        Main.frmTranslate.closeMe();
+                        Main.frmTranslate.Dispose();
+                        Main.frmTranslate = null;
+                    }
+                    if (Main.frmTransform != null)
+                    {
+                        Main.frmTransform.closeMe();
+                        Main.frmTransform.Dispose();
+                        Main.frmTransform = null;
+                    }
+                }
             }
-            if (frmChange != null) frmChange.readCuDatas();
-            if (frmChangeid != null) frmChangeid.readCuDatas();
-            if (frmRotate != null) frmRotate.readCuDatas();
-            if (frmPolar != null) frmPolar.readCuDatas();
-            if (frmCompare != null) frmCompare.readCuDatas();
-            if (frmTranslate != null) frmTranslate.readCuDatas();
-            if (frmTransform != null) frmTransform.readCuDatas();
         }
 
         internal static void aboutDialog()
@@ -229,10 +387,10 @@ edeebc3b835e0335b6bce9ddf366ca312e9ab01168da30e45143a65759a4bd68  CADdyTools_v10
                 frmSettings.Close();
                 frmSettings = null;
             }
-            if (frmChange != null)
+            if (frmChangeCod != null)
             {
-                frmChange.Close();
-                frmChange = null;
+                frmChangeCod.Close();
+                frmChangeCod = null;
             }
             if (frmChangeid != null)
             {
@@ -429,10 +587,10 @@ edeebc3b835e0335b6bce9ddf366ca312e9ab01168da30e45143a65759a4bd68  CADdyTools_v10
         /// <summary>Anzeige des Code-Tausch-Dialoges</summary>
         internal static void changeCodeDialog()
         {
-            if (frmChange == null)
+            if (frmChangeCod == null)
             {
-                frmChange = new frmChangeCode(ref pluginLanguage, ref cADdyPoints, ref cADdyMessdaten);
-                frmChange.setFromSetting(ref pluginSettings, ref notepad);
+                frmChangeCod = new frmChangeCode(ref pluginLanguage, ref cADdyPoints, ref cADdyMessdaten);
+                frmChangeCod.setFromSetting(ref pluginSettings, ref notepad);
                 using (Bitmap newBmp = new Bitmap(16, 16))
                 {
                     Graphics g = Graphics.FromImage(newBmp);
@@ -447,7 +605,7 @@ edeebc3b835e0335b6bce9ddf366ca312e9ab01168da30e45143a65759a4bd68  CADdyTools_v10
                 }
 
                 NppTbData _nppTbData = new NppTbData();
-                _nppTbData.hClient = frmChange.Handle;
+                _nppTbData.hClient = frmChangeCod.Handle;
                 _nppTbData.pszName = pluginLanguage.getLanguageText("frmChangeCode_Title");
                 _nppTbData.dlgID = idFrmChangeId;
                 _nppTbData.uMask = NppTbMsg.DWS_DF_CONT_RIGHT | NppTbMsg.DWS_ICONTAB | NppTbMsg.DWS_ICONBAR;
@@ -460,9 +618,9 @@ edeebc3b835e0335b6bce9ddf366ca312e9ab01168da30e45143a65759a4bd68  CADdyTools_v10
             }
             else
             {
-                Win32.SendMessage(PluginBase.nppData._nppHandle, (uint)NppMsg.NPPM_DMMSHOW, 0, frmChange.Handle);
+                Win32.SendMessage(PluginBase.nppData._nppHandle, (uint)NppMsg.NPPM_DMMSHOW, 0, frmChangeCod.Handle);
             }
-            frmChange.readCuDatas();
+            frmChangeCod.readCuDatas();
 
         }
 
@@ -586,7 +744,7 @@ edeebc3b835e0335b6bce9ddf366ca312e9ab01168da30e45143a65759a4bd68  CADdyTools_v10
             if (frmPolar == null)
             {
                 frmPolar = new frmPolarCoord(ref pluginLanguage, ref cADdyPoints);
-                frmPolar.setFromSetting(ref pluginSettings, ref notepad);                
+                frmPolar.setFromSetting(ref pluginSettings, ref notepad);
                 using (Bitmap newBmp = new Bitmap(16, 16))
                 {
                     Graphics g = Graphics.FromImage(newBmp);
@@ -658,7 +816,7 @@ edeebc3b835e0335b6bce9ddf366ca312e9ab01168da30e45143a65759a4bd68  CADdyTools_v10
         }
         /// <summary>Anzeige Koordinatenverschieben Dialog</summary>
         internal static void transformationCoordDialog()
-        {            
+        {
             if (frmTransform == null)
             {
                 frmTransform = new frmTransformCoord(ref pluginLanguage);
@@ -685,7 +843,6 @@ edeebc3b835e0335b6bce9ddf366ca312e9ab01168da30e45143a65759a4bd68  CADdyTools_v10
                 _nppTbData.pszModuleName = PluginName;
                 IntPtr _ptrNppTbData = Marshal.AllocHGlobal(Marshal.SizeOf(_nppTbData));
                 Marshal.StructureToPtr(_nppTbData, _ptrNppTbData, false);
-
                 Win32.SendMessage(PluginBase.nppData._nppHandle, (uint)NppMsg.NPPM_DMMREGASDCKDLG, 0, _ptrNppTbData);
             }
             else
@@ -693,6 +850,22 @@ edeebc3b835e0335b6bce9ddf366ca312e9ab01168da30e45143a65759a4bd68  CADdyTools_v10
                 Win32.SendMessage(PluginBase.nppData._nppHandle, (uint)NppMsg.NPPM_DMMSHOW, 0, frmTransform.Handle);
             }
             frmTransform.readCuDatas();
+            frmTransform.setMinWidth();
+        }
+
+        internal static void setMenuToCoord()
+        {
+
+        }
+
+        internal static void setMenuToMeasures()
+        {
+
+        }
+
+        internal static void sellAllOff()
+        {
+
         }
     }
 }

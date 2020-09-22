@@ -47,14 +47,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.dgvCompare = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnMakeCompare = new System.Windows.Forms.Button();
-            this.btnChangeEpochen = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.lblEpoche1 = new System.Windows.Forms.Label();
-            this.lblEpoche2 = new System.Windows.Forms.Label();
-            this.cbList1 = new System.Windows.Forms.ComboBox();
-            this.cbList2 = new System.Windows.Forms.ComboBox();
             this.pointName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ep1RW = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ep1HW = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,6 +60,14 @@
             this.delta2D = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.delta3D = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deltaRiwi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnMakeCompare = new System.Windows.Forms.Button();
+            this.btnChangeEpochen = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.lblEpoche1 = new System.Windows.Forms.Label();
+            this.lblEpoche2 = new System.Windows.Forms.Label();
+            this.cbList1 = new System.Windows.Forms.ComboBox();
+            this.cbList2 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompare)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -131,82 +131,8 @@
             this.dgvCompare.ShowCellToolTips = false;
             this.dgvCompare.ShowEditingIcon = false;
             this.dgvCompare.ShowRowErrors = false;
-            this.dgvCompare.Size = new System.Drawing.Size(1288, 282);
+            this.dgvCompare.Size = new System.Drawing.Size(847, 97);
             this.dgvCompare.TabIndex = 0;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.btnMakeCompare);
-            this.panel1.Controls.Add(this.btnChangeEpochen);
-            this.panel1.Controls.Add(this.btnClose);
-            this.panel1.Location = new System.Drawing.Point(467, 5);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(461, 50);
-            this.panel1.TabIndex = 1;
-            // 
-            // btnMakeCompare
-            // 
-            this.btnMakeCompare.Location = new System.Drawing.Point(3, 3);
-            this.btnMakeCompare.Name = "btnMakeCompare";
-            this.btnMakeCompare.Size = new System.Drawing.Size(113, 44);
-            this.btnMakeCompare.TabIndex = 2;
-            this.btnMakeCompare.Text = "Vergleich durchführen";
-            this.btnMakeCompare.UseVisualStyleBackColor = true;
-            this.btnMakeCompare.Click += new System.EventHandler(this.btnMakeCompare_Click);
-            // 
-            // btnChangeEpochen
-            // 
-            this.btnChangeEpochen.Location = new System.Drawing.Point(122, 3);
-            this.btnChangeEpochen.Name = "btnChangeEpochen";
-            this.btnChangeEpochen.Size = new System.Drawing.Size(113, 44);
-            this.btnChangeEpochen.TabIndex = 1;
-            this.btnChangeEpochen.Text = "Epochen tauschen";
-            this.btnChangeEpochen.UseVisualStyleBackColor = true;
-            this.btnChangeEpochen.Click += new System.EventHandler(this.btnChangeEpochen_Click);
-            // 
-            // btnClose
-            // 
-            this.btnClose.Location = new System.Drawing.Point(241, 3);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(113, 44);
-            this.btnClose.TabIndex = 0;
-            this.btnClose.Text = "Vergleich beenden";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // lblEpoche1
-            // 
-            this.lblEpoche1.AutoSize = true;
-            this.lblEpoche1.Location = new System.Drawing.Point(12, 9);
-            this.lblEpoche1.Name = "lblEpoche1";
-            this.lblEpoche1.Size = new System.Drawing.Size(96, 13);
-            this.lblEpoche1.TabIndex = 2;
-            this.lblEpoche1.Text = "Liste der Epoche 1";
-            // 
-            // lblEpoche2
-            // 
-            this.lblEpoche2.AutoSize = true;
-            this.lblEpoche2.Location = new System.Drawing.Point(12, 36);
-            this.lblEpoche2.Name = "lblEpoche2";
-            this.lblEpoche2.Size = new System.Drawing.Size(96, 13);
-            this.lblEpoche2.TabIndex = 3;
-            this.lblEpoche2.Text = "Liste der Epoche 2";
-            // 
-            // cbList1
-            // 
-            this.cbList1.FormattingEnabled = true;
-            this.cbList1.Location = new System.Drawing.Point(114, 6);
-            this.cbList1.Name = "cbList1";
-            this.cbList1.Size = new System.Drawing.Size(347, 21);
-            this.cbList1.TabIndex = 4;
-            // 
-            // cbList2
-            // 
-            this.cbList2.FormattingEnabled = true;
-            this.cbList2.Location = new System.Drawing.Point(114, 32);
-            this.cbList2.Name = "cbList2";
-            this.cbList2.Size = new System.Drawing.Size(347, 21);
-            this.cbList2.TabIndex = 5;
             // 
             // pointName
             // 
@@ -363,17 +289,92 @@
             this.deltaRiwi.ReadOnly = true;
             this.deltaRiwi.Width = 80;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btnMakeCompare);
+            this.panel1.Controls.Add(this.btnChangeEpochen);
+            this.panel1.Controls.Add(this.btnClose);
+            this.panel1.Location = new System.Drawing.Point(467, 5);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(362, 50);
+            this.panel1.TabIndex = 1;
+            // 
+            // btnMakeCompare
+            // 
+            this.btnMakeCompare.Location = new System.Drawing.Point(3, 3);
+            this.btnMakeCompare.Name = "btnMakeCompare";
+            this.btnMakeCompare.Size = new System.Drawing.Size(113, 44);
+            this.btnMakeCompare.TabIndex = 2;
+            this.btnMakeCompare.Text = "Vergleich durchführen";
+            this.btnMakeCompare.UseVisualStyleBackColor = true;
+            this.btnMakeCompare.Click += new System.EventHandler(this.btnMakeCompare_Click);
+            // 
+            // btnChangeEpochen
+            // 
+            this.btnChangeEpochen.Location = new System.Drawing.Point(122, 3);
+            this.btnChangeEpochen.Name = "btnChangeEpochen";
+            this.btnChangeEpochen.Size = new System.Drawing.Size(113, 44);
+            this.btnChangeEpochen.TabIndex = 1;
+            this.btnChangeEpochen.Text = "Epochen tauschen";
+            this.btnChangeEpochen.UseVisualStyleBackColor = true;
+            this.btnChangeEpochen.Click += new System.EventHandler(this.btnChangeEpochen_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Location = new System.Drawing.Point(241, 3);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(113, 44);
+            this.btnClose.TabIndex = 0;
+            this.btnClose.Text = "Vergleich beenden";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // lblEpoche1
+            // 
+            this.lblEpoche1.AutoSize = true;
+            this.lblEpoche1.Location = new System.Drawing.Point(12, 9);
+            this.lblEpoche1.Name = "lblEpoche1";
+            this.lblEpoche1.Size = new System.Drawing.Size(96, 13);
+            this.lblEpoche1.TabIndex = 2;
+            this.lblEpoche1.Text = "Liste der Epoche 1";
+            // 
+            // lblEpoche2
+            // 
+            this.lblEpoche2.AutoSize = true;
+            this.lblEpoche2.Location = new System.Drawing.Point(12, 36);
+            this.lblEpoche2.Name = "lblEpoche2";
+            this.lblEpoche2.Size = new System.Drawing.Size(96, 13);
+            this.lblEpoche2.TabIndex = 3;
+            this.lblEpoche2.Text = "Liste der Epoche 2";
+            // 
+            // cbList1
+            // 
+            this.cbList1.FormattingEnabled = true;
+            this.cbList1.Location = new System.Drawing.Point(114, 6);
+            this.cbList1.Name = "cbList1";
+            this.cbList1.Size = new System.Drawing.Size(347, 21);
+            this.cbList1.TabIndex = 4;
+            // 
+            // cbList2
+            // 
+            this.cbList2.FormattingEnabled = true;
+            this.cbList2.Location = new System.Drawing.Point(114, 32);
+            this.cbList2.Name = "cbList2";
+            this.cbList2.Size = new System.Drawing.Size(347, 21);
+            this.cbList2.TabIndex = 5;
+            // 
             // frmCompareCoord
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1295, 346);
+            this.ClientSize = new System.Drawing.Size(854, 161);
             this.Controls.Add(this.cbList2);
             this.Controls.Add(this.cbList1);
             this.Controls.Add(this.lblEpoche2);
             this.Controls.Add(this.lblEpoche1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dgvCompare);
+            this.MinimumSize = new System.Drawing.Size(870, 200);
             this.Name = "frmCompareCoord";
             this.Text = "Koordinaten vergleichen";
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompare)).EndInit();

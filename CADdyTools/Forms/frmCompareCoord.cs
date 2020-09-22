@@ -89,12 +89,18 @@ namespace org.rosenbohm.csharp.CADdyTools.Forms
             }
         }
 
+        /// <summary>Ich mach mich zu</summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnClose_Click(object sender, EventArgs e)
         {
             displayComparePoints.Clear();
             Win32.SendMessage(PluginBase.nppData._nppHandle, (uint)NppMsg.NPPM_DMMHIDE, 0, this.Handle);
         }
 
+        /// <summary>Vergleich erstellen</summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMakeCompare_Click(object sender, EventArgs e)
         {
             String cuFile = ClassNPPTools.getCurrentFile();
@@ -123,13 +129,21 @@ namespace org.rosenbohm.csharp.CADdyTools.Forms
             file2 = null;
             this.dgvCompare.Refresh();
         }
-
+        /// <summary>Button Seiten Wechseln</summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnChangeEpochen_Click(object sender, EventArgs e)
         {
             String fn1 = cbList1.Text;
             cbList1.Text = cbList2.Text;
             cbList2.Text = fn1;
             btnMakeCompare_Click(null, null);
+        }
+        /// <summary>Mich Schließen</summary>
+        public void closeMe()
+        {
+            displayComparePoints.Clear();
+            Win32.SendMessage(PluginBase.nppData._nppHandle, 2055u, 0, base.Handle);
         }
     }
 }

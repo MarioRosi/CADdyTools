@@ -50,6 +50,7 @@ namespace org.rosenbohm.csharp.CADdyTools.Forms
             btnCalcTransform.Text = language.getLanguageText("frmTransformCoord_btnCalcTransform");
             btnClose.Text = language.getLanguageText("frmTransformCoord_btnClose");
             btnMakeTransform.Text = language.getLanguageText("frmTransformCoord_btnMakeTransform");
+            btnChangeSrcDest.Text = language.getLanguageText("frmTransformCoord_btnChangeSrcDest");
             lblSrc.Text = language.getLanguageText("frmTransformCoord_lblSrc");
             lblDest.Text = language.getLanguageText("frmTransformCoord_lblDest");
             lblSigmaXY.Text = language.getLanguageText("frmTransformCoord_lblSigmaXY");
@@ -110,6 +111,19 @@ namespace org.rosenbohm.csharp.CADdyTools.Forms
         {
             displayTransformPoints.Clear();
             Win32.SendMessage(PluginBase.nppData._nppHandle, (uint)NppMsg.NPPM_DMMHIDE, 0, this.Handle);
+        }
+        /// <summary>Mach mich zu</summary>
+        public void closeMe()
+        {
+            displayTransformPoints.Clear();
+            Win32.SendMessage(PluginBase.nppData._nppHandle, 2055u, 0, base.Handle);
+        }
+
+        /// <summary>Setzte die Mindestbreite</summary>
+        public void setMinWidth()
+        {
+            int mw = 870 / FontHeight;
+
         }
 
         private void btnCalcTransform_Click(object sender, EventArgs e)
@@ -213,6 +227,18 @@ namespace org.rosenbohm.csharp.CADdyTools.Forms
             tbSigmaZ.BackColor = Color.LightGray;
             tbSigmaZ.Text = "";
             btnMakeTransform.Enabled = false;
-        }        
+        }
+        /// <summary>Schnelles Quelle Ziel tauschen</summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnChangeSrcDest_Click(object sender, EventArgs e)
+        {
+            displayTransformPoints.Clear();
+            String temp = cbListSrc.Text;
+            cbListSrc.Text = cbListDest.Text;
+            cbListDest.Text = temp;
+            transformation = null;
+            //btnCalcTransform_Click(sender, e);
+        }
     }
 }
