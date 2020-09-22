@@ -18,8 +18,8 @@ namespace Kbg.NppPluginNET
      * 2. File CADdyTools.dll + CADdyTools_Lang.ini => CADdyTools_vAAAA_xBB.zip (AAAA = akt. Version z.Zt. 1137 BB = 86/64)
      * 3. calc SHA-256-Hash  NP++->Werkzeuge->SHA-256->Aus Dateien erstellen (aus den *.zip!)
      * 
-     * 7ccbfb712e3b6757137f4921de6e6f4f83f9c258248137690c0dd5de9262c5dd  CADdyTools_v1137_x86.zip
      * 65c03a40c28dd1b65489aa5dee4df5219ac1db476b751a9c3312aea3cb60cda2  CADdyTools_v1137_x64.zip
+     * 7ccbfb712e3b6757137f4921de6e6f4f83f9c258248137690c0dd5de9262c5dd  CADdyTools_v1137_x86.zip
      * 
      * 64bit eintrag
      * 
@@ -27,7 +27,7 @@ namespace Kbg.NppPluginNET
 			"folder-name": "CADdyTools",
 			"display-name": "CADdyTools",
 			"version": "1.1.3.7",
-			"id": "7ccbfb712e3b6757137f4921de6e6f4f83f9c258248137690c0dd5de9262c5dd",
+			"id": "65c03a40c28dd1b65489aa5dee4df5219ac1db476b751a9c3312aea3cb60cda2",
 			"repository": "https://github.com/MarioRosi/CADdyTools/releases/download/1.1.3.7/CADdyTools_v1137_x64.zip",
 			"description": "Notepad++-Plugin for manipulate CADdy-formated coordinate- and measure-textfiles",
 			"author": "Mario Rosenbohm",
